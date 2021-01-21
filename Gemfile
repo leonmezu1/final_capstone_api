@@ -41,8 +41,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "factory_bot_rails", "~> 6.1", :groups => [:test, :development]
 gem "rspec-rails", "~> 4.0", :groups => [:test, :development]
-gem "rubocop", "~> 1.8", :groups => [:test, :development]
 
 gem "jwt", "~> 2.2"
 
 gem "jsonapi-serializer", "~> 2.1"
+
+gem "rubocop-rails", "~> 2.9", :groups => [:test, :development]
+gem "rubocop-rspec", "~> 2.1", :groups => [:test, :development]
