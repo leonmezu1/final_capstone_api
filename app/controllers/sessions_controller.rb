@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def auto_login
-    render_logged_in_user if session_user
-    render_not_logged_in unless session_user
+    render_logged_in_user
   end
 
   private
