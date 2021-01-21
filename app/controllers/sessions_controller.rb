@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :header_token_present?, only: %i[login]
+
   def login
     user = fetch_user
     render_status_not_found unless user

@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  skip_before_action :authenticated
+  skip_before_action :header_token_present?
 
   def create
     user = User.create!(user_params)
