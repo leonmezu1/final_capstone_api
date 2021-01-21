@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :sessions, only: %i[create]
-  resources :tokens, only: %i[create]
+  post :login, to: 'sessions#login'
+  get :auto_login, to: 'sessions#auto_login'
+  resources :registrations, only: %i[create]
 end
