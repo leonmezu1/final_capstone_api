@@ -48,3 +48,5 @@ gem 'jsonapi-serializer', '~> 2.1'
 
 gem 'rubocop-rails', '~> 2.9', groups: %i[test development]
 gem 'rubocop-rspec', '~> 2.1', groups: %i[test development]
+
+gem "bcrypt", "~> 3.1"
