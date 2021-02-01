@@ -14,6 +14,7 @@ class ApplicationController < ActionController::API
   end
 
   def render_logged_in_user
+    render_status_unathorized unless session_user
     return unless session_user
 
     render json: {
@@ -29,14 +30,6 @@ class ApplicationController < ActionController::API
       logged_in: true,
       jwt: token
     }, status: :created
-  end
-
-  def render_not_logged_in
-    render json: { logged_in: false }, status: :unauthorized
-  end
-
-  def render_status_not_found
-    render json: { status: 401 }, status: 401
   end
 
   def header_token_present?

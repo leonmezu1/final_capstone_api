@@ -7,9 +7,10 @@ module JsonErrors
     rescue_from StandardError,                      with: :render_500
     rescue_from ActiveRecord::RecordNotFound,       with: :render_404
     rescue_from ActionController::ParameterMissing, with: :render_400
+    rescue_from ActiveRecord::RecordInvalid,        with: :render_422
 
 
-    def render_400(errors = 'required parameters invalid')
+    def render_400(errors = 'required parameters invalid or missing')
       render_errors(errors, 400)
     end
 
@@ -27,6 +28,18 @@ module JsonErrors
 
     def render_500(errors = 'internal server error')
       render_errors(errors, 500)
+    end
+
+    def render_not_logged_in
+      render json: { logged_in: false }, status: :unauthorized
+    end
+
+    def render_status_not_found
+      render json: { status: 'not found' }, status: 404
+    end
+
+    def render_status_unathorized
+      render json: { status: 'unauthorized access' }, status: 401
     end
 
 
